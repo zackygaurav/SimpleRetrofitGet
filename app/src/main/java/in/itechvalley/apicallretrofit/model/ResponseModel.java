@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class ResponseModel implements Serializable
 {
@@ -14,17 +15,17 @@ public class ResponseModel implements Serializable
     @SerializedName("message")
     private String message;
 
-    @SerializedName("status_code")
-    private int statusCode;
+    @SerializedName("movies")
+    private List<SingleMovieModel> movieList;
 
     /*
     * Constructor
     * */
-    public ResponseModel(boolean success, String message, int statusCode)
+    public ResponseModel(boolean success, String message, List<SingleMovieModel> movieList)
     {
         this.success = success;
         this.message = message;
-        this.statusCode = statusCode;
+        this.movieList = movieList;
     }
 
     /*
@@ -40,8 +41,8 @@ public class ResponseModel implements Serializable
         return message;
     }
 
-    public int getStatusCode()
+    public List<SingleMovieModel> getMovieList()
     {
-        return statusCode;
+        return movieList;
     }
 }
