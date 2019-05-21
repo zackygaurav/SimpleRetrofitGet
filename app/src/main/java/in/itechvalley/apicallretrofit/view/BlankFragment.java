@@ -7,16 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import butterknife.ButterKnife;
 import in.itechvalley.apicallretrofit.R;
+import in.itechvalley.apicallretrofit.viewmodel.MainViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BlankFragment extends Fragment
 {
-
+    private MainViewModel mainViewModel;
 
     public BlankFragment()
     {
@@ -34,6 +36,13 @@ public class BlankFragment extends Fragment
         * Bind ButterKnife to this Fragment
         * */
         ButterKnife.bind(this, rootView);
+
+        /*
+        * Init ViewModel
+        * */
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+
+
 
         return rootView;
     }
